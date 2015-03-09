@@ -1,0 +1,31 @@
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: #axisVersion# #today# -->
+<serviceGroup>
+	<service name="FSVRemote">
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="fsv.FSVRemoteMessageReceiverInOut" />
+		</messageReceivers>
+		<parameter locked="false" name="ServiceClass">
+			fsv.FSVRemoteSkeleton
+		</parameter>
+		<operation name="getversion"
+			mep="http://www.w3.org/2004/08/wsdl/in-out">
+			<actionMapping>
+				http://tempuri.org/FSVRemote/action/FSVRemote.getversion
+			</actionMapping>
+			<outputActionMapping>
+				http://tempuri.org/FSVRemote/wsdl/FSVRemoteSoapPort/getversionResponse
+			</outputActionMapping>
+		</operation>
+		<operation name="Transact"
+			mep="http://www.w3.org/2004/08/wsdl/in-out">
+			<actionMapping>
+				http://tempuri.org/FSVRemote/action/FSVRemote.Transact
+			</actionMapping>
+			<outputActionMapping>
+				http://tempuri.org/FSVRemote/wsdl/FSVRemoteSoapPort/TransactResponse
+			</outputActionMapping>
+		</operation>
+	</service>
+</serviceGroup>

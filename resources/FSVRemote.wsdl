@@ -1,0 +1,158 @@
+<wsdl:definitions xmlns:ns0="http://tempuri.org/FSVRemote/wsdl/"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:wsdlns="http://tempuri.org/FSVRemote/wsdl/"
+	xmlns:stk="http://schemas.microsoft.com/soap-toolkit/wsdl-extension"
+	xmlns:dime="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:content="http://schemas.xmlsoap.org/ws/2002/04/content-type/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:typens="http://tempuri.org/FSVRemote/type/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:ref="http://schemas.xmlsoap.org/ws/2002/04/reference/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	targetNamespace="http://tempuri.org/FSVRemote/wsdl/">
+	<wsdl:types>
+		<xsd:schema
+			xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+			xmlns="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://tempuri.org/FSVRemote/type/">
+			<xsd:import
+				namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+			<xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+			<xsd:import
+				namespace="http://schemas.xmlsoap.org/ws/2002/04/reference/" />
+			<xsd:import
+				namespace="http://schemas.xmlsoap.org/ws/2002/04/content-type/" />
+		</xsd:schema>
+		<xsd:schema
+			xmlns:axis2wrapped="http://tempuri.org/FSVRemote/wsdl/"
+			attributeFormDefault="unqualified" elementFormDefault="unqualified"
+			targetNamespace="http://tempuri.org/FSVRemote/wsdl/">
+			<xsd:element name="getversion">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Transact">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="password" type="xsd:string" />
+						<xsd:element name="userid" type="xsd:string" />
+						<xsd:element name="paramstr" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="getversionResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Result" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TransactResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Result" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="FSVRemote.getversion">
+		<wsdl:part name="part1" element="ns0:getversion" />
+	</wsdl:message>
+	<wsdl:message name="FSVRemote.getversionResponse" />
+	<wsdl:message name="FSVRemote.Transact" />
+	<wsdl:message name="FSVRemote.TransactResponse" />
+	<wsdl:portType name="FSVRemotePortType">
+		<wsdl:operation name="getversion">
+			<wsdl:input
+				xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+				message="ns0:FSVRemote.getversion"
+				wsaw:Action="http://tempuri.org/FSVRemote/action/FSVRemote.getversion" />
+			<wsdl:output
+				xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+				message="ns0:FSVRemote.getversionResponse"
+				wsaw:Action="http://tempuri.org/FSVRemote/wsdl/FSVRemoteSoapPort/getversionResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="Transact">
+			<wsdl:input
+				xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+				message="ns0:FSVRemote.Transact"
+				wsaw:Action="http://tempuri.org/FSVRemote/action/FSVRemote.Transact" />
+			<wsdl:output
+				xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+				message="ns0:FSVRemote.TransactResponse"
+				wsaw:Action="http://tempuri.org/FSVRemote/wsdl/FSVRemoteSoapPort/TransactResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="FSVRemoteSOAP11Binding"
+		type="ns0:FSVRemotePortType">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<wsdl:operation name="getversion">
+			<soap:operation
+				soapAction="http://tempuri.org/FSVRemote/action/FSVRemote.getversion"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Transact">
+			<soap:operation
+				soapAction="http://tempuri.org/FSVRemote/action/FSVRemote.Transact"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="FSVRemoteSOAP12Binding"
+		type="ns0:FSVRemotePortType">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<wsdl:operation name="getversion">
+			<soap12:operation
+				soapAction="http://tempuri.org/FSVRemote/action/FSVRemote.getversion"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Transact">
+			<soap12:operation
+				soapAction="http://tempuri.org/FSVRemote/action/FSVRemote.Transact"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="FSVRemote">
+		<wsdl:port name="FSVRemoteSOAP11port_https"
+			binding="ns0:FSVRemoteSOAP11Binding">
+			<soap:address
+				location="https://10.229.183.6/FSVRemote.WSDL" />
+		</wsdl:port>
+		<wsdl:port name="FSVRemoteSOAP12port_https"
+			binding="ns0:FSVRemoteSOAP12Binding">
+			<soap12:address
+				location="https://10.229.183.6/FSVRemote.WSDL" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

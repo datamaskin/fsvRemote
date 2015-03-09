@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  	<fsvremote>
+  		<DBAccess>
+  			<driverClass>
+  				oracle.jdbc.driver.OracleDriver
+  			</driverClass>
+  			<connectionURL>
+  				jdbc:oracle:thin:@h2-fsvp-sdb01:1521:fsvi1
+  			</connectionURL>  
+  			<selectQuery>
+  				select vchost\, vcport\, chinterfaceid from fsvuser where vcuserid = ?
+  			</selectQuery>			
+  		</DBAccess>
+  		<Socket>
+  			<timeout>
+  				200000
+  			</timeout>
+  			<readTimeOut>
+  				300000
+  			</readTimeOut>
+  		</Socket>  	
+	</fsvremote>
+</configuration>
